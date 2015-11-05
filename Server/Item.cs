@@ -119,7 +119,7 @@ namespace Server
 
         #region Enhance Client
         /// <summary>
-        /// Unused.
+        /// Face Selecton EC
         /// </summary>
         Face = 0x0F,
         #endregion
@@ -3488,7 +3488,7 @@ namespace Server
 
 		public virtual int GetMaxUpdateRange()
 		{
-			return Core.GlobalUpdateRange;
+            return Core.GlobalUpdateRange;
 		}
 
 		public virtual int GetUpdateRange(Mobile m)
@@ -3498,7 +3498,7 @@ namespace Server
 
 		public void SendInfoTo(NetState state)
 		{
-			SendInfoTo(state, ObjectPropertyList.Enabled);
+            SendInfoTo(state, ObjectPropertyList.Enabled && GraphicData == GraphicData.TileData);
 		}
 
 		public virtual void SendInfoTo(NetState state, bool sendOplPacket)
@@ -3510,6 +3510,8 @@ namespace Server
 				state.Send(OPLPacket);
 			}
 		}
+
+        public virtual GraphicData GraphicData { get { return GraphicData.TileData; } }
 
 		protected virtual Packet GetWorldPacketFor(NetState state)
 		{
