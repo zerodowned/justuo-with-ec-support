@@ -78,7 +78,7 @@ namespace Server.Mobiles
             else if (this.m_Mobile.Skills[SkillName.Healing].Value > 10.0)
             {
                 int delay = (int)(5.0 + (0.5 * ((120 - this.m_Mobile.Dex) / 10)));
-                new BandageContext(this.m_Mobile, this.m_Mobile, TimeSpan.FromSeconds(delay), false);
+                new BandageContext(this.m_Mobile, this.m_Mobile, TimeSpan.FromSeconds(delay), null);
                 this.m_NextHealTime = DateTime.UtcNow + TimeSpan.FromSeconds(delay + 1);
                 return true;
             }

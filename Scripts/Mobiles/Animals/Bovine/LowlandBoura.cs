@@ -67,7 +67,7 @@ namespace Server.Mobiles
             set
             {
                 m_NextWoolTime = value;
-                Body = (DateTime.Now >= m_NextWoolTime) ? 0x2CB : 0x2CB;
+                Body = (DateTime.UtcNow >= m_NextWoolTime) ? 0x2CB : 0x2CB;
             }
         }
 
@@ -99,7 +99,7 @@ namespace Server.Mobiles
 
         public void Carve(Mobile from, Item item)
         {
-            if (DateTime.Now < m_NextWoolTime)
+            if (DateTime.UtcNow < m_NextWoolTime)
             {
                 // The boura glares at you and will not let you shear its fur.
                 PrivateOverheadMessage(MessageType.Regular, 0x3B2, 1112354, from.NetState);
@@ -110,13 +110,13 @@ namespace Server.Mobiles
             //from.AddToBackpack( new FurG( Map == Map.Felucca ? 2 : 30 ) );
             from.AddToBackpack(new Fur(Map == Map.Felucca ? 2 : 30));
 
-            NextWoolTime = DateTime.Now + TimeSpan.FromHours(3.0); // TODO: Proper time delay
+            NextWoolTime = DateTime.UtcNow + TimeSpan.FromHours(3.0); // TODO: Proper time delay
         }
 
         public override void OnThink()
         {
             base.OnThink();
-            Body = (DateTime.Now >= m_NextWoolTime) ? 0x2CB : 0x2CB;
+            Body = (DateTime.UtcNow >= m_NextWoolTime) ? 0x2CB : 0x2CB;
         } //
 
         public override int GetIdleSound()

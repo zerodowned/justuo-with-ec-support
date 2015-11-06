@@ -5046,6 +5046,22 @@ m_Stream.Write( (int) renderMode );
 	}
 
     #region Enhance Client
+    public sealed class CooldownInfo : Packet
+    {
+        public CooldownInfo(Item item, int seconds)
+            : base(0xBF)
+        {
+            this.EnsureCapacity(15);
+
+            m_Stream.Write((short)0x31); // packet subcommand
+            m_Stream.Write((short)0x1);
+            m_Stream.Write((int)item.ItemID);
+            m_Stream.Write((int)seconds);
+        }
+    }
+    #endregion
+
+    #region Enhance Client
     // KR Verifier Packet (Still didnt research on it. Just replying)
     public sealed class KRVerifier : Packet
     {

@@ -194,12 +194,12 @@ namespace Server
 
         #region UseBandage
 
-        public static int UseBandage(BaseCreature from)
+        public static int UseBandage(BaseCreature from, Bandage bandage)
         {
-            return UseBandage(from, false);
+            return UseBandage(from, false, bandage);
         }
 
-        public static int UseBandage(BaseCreature from, bool healmaster)
+        public static int UseBandage(BaseCreature from, bool healmaster, Bandage bandage)
         {
             if (from.IsDeadPet)
                 return 12;
@@ -213,11 +213,11 @@ namespace Server
             {
                 if (from.InRange(from.ControlMaster, 2) && from.ControlMaster.Alive &&
                     from.ControlMaster.Hits < from.ControlMaster.HitsMax)
-                    BandageContext.BeginHeal(from, from.ControlMaster);
+                    BandageContext.BeginHeal(from, from.ControlMaster, bandage);
             }
             else if (from.Hits < from.HitsMax)
             {
-                BandageContext.BeginHeal(from, from);
+                BandageContext.BeginHeal(from, from, bandage);
             }
 
             return delay + 3;

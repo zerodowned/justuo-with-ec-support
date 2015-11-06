@@ -74,7 +74,7 @@ namespace Server.Multis
 
         public override int GetMaxUpdateRange()
         {
-            return Core.GlobalMaxUpdateRange;//24;
+            return Core.GlobalMaxUpdateRange;
         }
 
 		public override int GetUpdateRange( Mobile m )
@@ -1078,31 +1078,6 @@ namespace Server.Multis
         {
             if (this.Deleted)
                 return;
-            /*
-            int oldPrice = Price;
-            int newPrice = oldPrice + ((DesignState.Components.List.Length - CurrentState.Components.List.Length) * 500);
-            int cost = newPrice - oldPrice;
-
-            if (cost >= 0)
-            {
-                if (Banker.Withdraw(from, cost))
-                {
-                    from.SendLocalizedMessage(1060398, cost.ToString()); // ~1_AMOUNT~ gold has been withdrawn from your bank box.
-                }
-                else
-                {
-                    from.SendLocalizedMessage(1061903); // You cannot commit this house design, because you do not have the necessary funds in your bank box to pay for the upgrade.  Please back up your design, obtain the required funds, and commit your design again.
-                    return;
-                }
-            }
-            else
-            {
-                if (Banker.Deposit(from, -cost))
-                    from.SendLocalizedMessage(1060397, (-cost).ToString()); // ~1_AMOUNT~ gold has been deposited into your bank box.
-                else
-                    return;
-            }
-             */
 
             /* Client chose to commit current design state
              *  - Commit design state

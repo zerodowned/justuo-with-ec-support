@@ -220,7 +220,7 @@ namespace Server.Factions
 				return false;
 			}
 
-			m_Bandage = BandageContext.BeginHeal(m_Guard, m_Guard);
+			m_Bandage = BandageContext.BeginHeal(m_Guard, m_Guard, null);
 			m_BandageStart = DateTime.UtcNow;
 			return (m_Bandage != null);
 		}

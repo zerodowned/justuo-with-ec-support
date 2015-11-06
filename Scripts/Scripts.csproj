@@ -186,6 +186,11 @@
     <Compile Include="Gumps\ClientGump.cs" />
     <Compile Include="Gumps\ConfirmBreakCrystalGump.cs" />
     <Compile Include="Gumps\ConfirmHeritageGump.cs" />
+    <Compile Include="Gumps\ConfirmReleaseDeadPetGump.cs" />
+    <Compile Include="Gumps\StatRewardGump.cs" />
+    <Compile Include="Items\Skill Items\Misc\Bandage.cs" />
+    <Compile Include="Items\Special\8th Anniversary Items\EnhancedBandage.cs" />
+    <Compile Include="Items\Special\8th Anniversary Items\FountainOfLife.cs" />
     <Compile Include="Multis\Houses\Gumps\ConfirmHouseResize.cs" />
     <Compile Include="Gumps\ConfirmReleaseGump.cs" />
     <Compile Include="Gumps\DawnsMusicBoxGump.cs" />
@@ -1602,7 +1607,6 @@
     <Compile Include="Items\Skill Items\Magical\Spellbook.cs" />
     <Compile Include="Items\Skill Items\Magical\SpellStone.cs" />
     <Compile Include="Items\Skill Items\Magical\SpellweavingBook.cs" />
-    <Compile Include="Items\Skill Items\Misc\Bandage.cs" />
     <Compile Include="Items\Skill Items\Misc\FireHorn.cs" />
     <Compile Include="Items\Skill Items\Misc\RecipeScroll.cs" />
     <Compile Include="Items\Skill Items\Misc\RepairDeed.cs" />
@@ -1693,7 +1697,6 @@
     <Compile Include="Items\Special\8th Anniversary Items\Dawn%27s Music Box\RewardVersion\MusicBoxGears.cs" />
     <Compile Include="Items\Special\8th Anniversary Items\Dawn%27s Music Box\RewardVersion\TrackInfo.cs" />
     <Compile Include="Items\Special\8th Anniversary Items\DupresShield.cs" />
-    <Compile Include="Items\Special\8th Anniversary Items\FountainOfLife.cs" />
     <Compile Include="Items\Special\8th Anniversary Items\OssianGrimoire.cs" />
     <Compile Include="Items\Special\8th Anniversary Items\QuiverOfInfinity.cs" />
     <Compile Include="Items\Special\8th Anniversary Items\Talismans.cs" />
@@ -2815,6 +2818,14 @@
     <Compile Include="Quests\Witch Apprentice\Mobiles\Zeefzorpul.cs" />
     <Compile Include="Quests\Witch Apprentice\Objectives.cs" />
     <Compile Include="Quests\Witch Apprentice\WitchApprenticeQuest.cs" />
+    <Compile Include="Services\Chat\Channel.cs" />
+    <Compile Include="Services\Chat\ChatActionHandler.cs" />
+    <Compile Include="Services\Chat\ChatActionHandlers.cs" />
+    <Compile Include="Services\Chat\ChatCommand.cs" />
+    <Compile Include="Services\Chat\ChatSystem.cs" />
+    <Compile Include="Services\Chat\ChatUser.cs" />
+    <Compile Include="Services\Chat\Logging.cs" />
+    <Compile Include="Services\Chat\Packets.cs" />
     <Compile Include="Services\Encryption\Configuration.cs" />
     <Compile Include="Services\Encryption\Encryption.cs" />
     <Compile Include="Services\Encryption\GameEncryption.cs" />
@@ -2824,6 +2835,7 @@
     <Compile Include="Services\Encryption\NoEncryption.cs" />
     <Compile Include="Services\Encryption\TwofishBase.cs" />
     <Compile Include="Services\Encryption\TwofishEncryption.cs" />
+    <Compile Include="Services\Help\Harassment.cs" />
     <Compile Include="Services\Khaldun\Books\GrimmochJournal.cs" />
     <Compile Include="Services\Khaldun\Books\LysanderNotebook.cs" />
     <Compile Include="Services\Khaldun\Books\TavarasJournal.cs" />
@@ -3740,14 +3752,6 @@
     <Compile Include="Services\ChampionSystem\RestartTimer.cs" />
     <Compile Include="Services\ChampionSystem\SliceTimer.cs" />
     <Compile Include="Services\ChampionSystem\StarRoomGate.cs" />
-    <Compile Include="Services\Chat\Channel.cs" />
-    <Compile Include="Services\Chat\Chat.cs" />
-    <Compile Include="Services\Chat\ChatActionHandler.cs" />
-    <Compile Include="Services\Chat\ChatActionHandlers.cs" />
-    <Compile Include="Services\Chat\ChatCommand.cs" />
-    <Compile Include="Services\Chat\Chatold.cs" />
-    <Compile Include="Services\Chat\ChatUser.cs" />
-    <Compile Include="Services\Chat\Packets.cs" />
     <Compile Include="Services\Community Collections\BaseCollectionItem.cs" />
     <Compile Include="Services\Community Collections\BaseCollectionMobile.cs" />
     <Compile Include="Services\Community Collections\Britain Library\Rewards\Glasses.cs" />

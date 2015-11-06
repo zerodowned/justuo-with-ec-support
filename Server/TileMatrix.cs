@@ -253,62 +253,6 @@ namespace Server
             }
 
             return tiles;
-            /*
-			if (x < 0 || y < 0 || x >= m_BlockWidth || y >= m_BlockHeight || m_Statics == null || m_Index == null)
-			{
-				return m_EmptyStaticBlock;
-			}
-
-			if (m_StaticTiles[x] == null)
-			{
-				m_StaticTiles[x] = new StaticTile[m_BlockHeight][][][];
-			}
-
-			StaticTile[][][] tiles = m_StaticTiles[x][y];
-
-			if (tiles == null)
-			{
-				lock (m_FileShare)
-				{
-					for (int i = 0; tiles == null && i < m_FileShare.Count; ++i)
-					{
-						TileMatrix shared = m_FileShare[i];
-
-						lock (shared)
-						{
-							if (x >= 0 && x < shared.m_BlockWidth && y >= 0 && y < shared.m_BlockHeight)
-							{
-								StaticTile[][][][] theirTiles = shared.m_StaticTiles[x];
-
-								if (theirTiles != null)
-								{
-									tiles = theirTiles[y];
-								}
-
-								if (tiles != null)
-								{
-									int[] theirBits = shared.m_StaticPatches[x];
-
-									if (theirBits != null && (theirBits[y >> 5] & (1 << (y & 0x1F))) != 0)
-									{
-										tiles = null;
-									}
-								}
-							}
-						}
-					}
-				}
-
-				if (tiles == null)
-				{
-					tiles = ReadStaticBlock(x, y);
-				}
-
-				m_StaticTiles[x][y] = tiles;
-			}
-
-			return tiles;
-             */
 		}
 
 		public StaticTile[] GetStaticTiles(int x, int y)
@@ -343,46 +287,6 @@ namespace Server
             m_TilesList.AddRange(Season.PatchTiles(tiles[x & 0x7][y & 0x7], m_Owner.Season));
 
             return m_TilesList.ToArray();
-            /*
-			StaticTile[][][] tiles = GetStaticBlock(x >> 3, y >> 3);
-
-			if (multis)
-			{
-				IPooledEnumerable<StaticTile[]> eable = m_Owner.GetMultiTilesAt(x, y);
-
-				if (eable == Map.NullEnumerable<StaticTile[]>.Instance)
-				{
-					return tiles[x & 0x7][y & 0x7];
-				}
-
-				bool any = false;
-
-				foreach (StaticTile[] multiTiles in eable)
-				{
-					if (!any)
-					{
-						any = true;
-					}
-
-					m_TilesList.AddRange(multiTiles);
-				}
-
-				eable.Free();
-
-				if (!any)
-				{
-					return tiles[x & 0x7][y & 0x7];
-				}
-
-				m_TilesList.AddRange(tiles[x & 0x7][y & 0x7]);
-
-				return m_TilesList.ToArray();
-			}
-			else
-			{
-				return tiles[x & 0x7][y & 0x7];
-			}
-             */
 		}
 
 		[MethodImpl(MethodImplOptions.Synchronized)]
@@ -735,70 +639,6 @@ namespace Server
 			return new Point3D(tile.X, tile.Y, tile.Z);
 		}
 	}
-    /*
-    [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential, Pack = 1)]
-    public struct StaticTiles
-    {
-        public ushort m_ID;
-        public byte m_X;
-        public byte m_Y;
-        public sbyte m_Z;
-        public short m_Hue;
-    }
-
-    [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential, Pack = 1)]
-    public struct StaticTile
-    {
-        internal ushort m_ID;
-        internal sbyte m_Z;
-
-        public int ID
-        {
-            get
-            {
-                return m_ID;
-            }
-            set
-            {
-                m_ID = (ushort)value;
-            }
-        }
-
-        public int Z
-        {
-            get
-            {
-                return m_Z;
-            }
-            set
-            {
-                m_Z = (sbyte)value;
-            }
-        }
-
-        public int Height
-        {
-            get { return TileData.ItemTable[m_ID & TileData.MaxItemValue].Height; }
-        }
-
-        public bool Ignored
-        {
-            get { return (m_ID == 2 || m_ID == 0x1DB || (m_ID >= 0x1AE && m_ID <= 0x1B5)); }
-        }
-
-        public StaticTile(ushort id, sbyte z)
-        {
-            m_ID = id;
-            m_Z = z;
-        }
-
-        public void Set(ushort id, sbyte z)
-        {
-            m_ID = id;
-            m_Z = z;
-        }
-    }
-     */
 
 	public class UOPIndex
 	{
